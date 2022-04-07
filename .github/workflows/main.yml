@@ -27,4 +27,4 @@ jobs:
     - name: Run make and verify make was successful
       run: make && make check
     - name: Perform CodeQL Analysis
-     uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@v1
