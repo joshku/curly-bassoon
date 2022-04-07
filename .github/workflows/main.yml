@@ -1,0 +1,26 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ main ]
+  schedule:
+    - cron: '20 6 * * 0'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+    - name: Install Dependencies
+      run: sudo apt update && sudo apt install -y flex-old bison libncurses5-dev libncursesw5-dev
+    #- name: Perform CodeQL Analysis
+    #  uses: github/codeql-action/analyze@v1
